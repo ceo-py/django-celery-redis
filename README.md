@@ -15,3 +15,14 @@ Scheduled Task: Let's say you want to schedule a daily email newsletter to be se
 Normal Shared Task: Imagine a user uploads a large image to your application. To avoid slowing down the user interface, you can delegate the image resizing task to Celery. When the user uploads the image, Django sends the task to Celery via Redis. Celery processes this task in the background, resizing the image and saving it. Once complete, it can send a notification to the user. This asynchronous task ensures that your application remains responsive, and users don't have to wait for the image to be processed before continuing to use the site.
 
 In summary, this combination of Django, Celery, and Redis allows your web application to efficiently handle both scheduled tasks and normal shared tasks. Whether you need to automate daily processes or offload resource-intensive operations, this setup ensures that your application remains responsive and reliable.
+
+Starting
+
+
+Beat Start
+celery -A aDemo beat --loglevel=debug
+
+Worker Start
+celery -A aDemo worker --loglevel=info --pool=solo
+
+n.b. for Windows users `--pool=solo` is a must 

@@ -6,3 +6,4 @@ urlpatterns = [
     path("", index, name='index'),
     path("slow/", index_slow, name='index_slow'),
 ]
+
